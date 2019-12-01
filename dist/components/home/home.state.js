@@ -7,7 +7,7 @@
     function stateConfig($stateProvider) {
         $stateProvider.state('home', {
             parent: 'smart_shop',
-            url: 'home',
+            url: '/home',
             data: {},
             views: {
                 'content@': {

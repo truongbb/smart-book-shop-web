@@ -2,7 +2,7 @@
 
 1. Prererequisite
 
-- npm
+- `npm`
 
 2. Start
 
