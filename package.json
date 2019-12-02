@@ -16,6 +16,7 @@
     "package:components": "cpx \"src/components/**/*\" dist/components -C",
     "package:assets": "cpx \"src/assets/fonts/**/*\" dist/assets/fonts -C && cpx \"src/assets/images/**/*\" dist/assets/images -C",
     "package": "npm run package:html && npm run package:css && npm run package:js && npm run package:assets && npm run package:components",
+    "watch:html": "onchange \"src/**/*.html\" -- npm run package:html",
     "watch:scss": "onchange \"src/**/*.scss\" -- npm run package:css",
     "watch:js": "onchange \"src/**/*.js\" -- npm run package:js",
     "watch": "npm-run-all --parallel watch:*",
