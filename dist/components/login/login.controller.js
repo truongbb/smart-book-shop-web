@@ -3,9 +3,9 @@
 
   angular.module('smart_shop').controller('LoginController', LoginController);
 
-  LoginController.$inject = ['$scope', 'LoginService', '$localStorage'];
+  LoginController.$inject = ['$scope', 'LoginService', '$localStorage', '$state'];
 
-  function LoginController($scope, LoginService, $localStorage) {
+  function LoginController($scope, LoginService, $localStorage, $state) {
     var vm = this;
     (function init() {
       // <editor-fold desc="FUNCTIONS">
@@ -22,15 +22,19 @@
     })();
 
     function login() {
+
       LoginService.login(vm.user, function (response) {
         $localStorage.user = response.user;
         $localStorage.token = response.token;
+        $state.go("smart_shop");
       }, function (err) {
         console.log(err);
         if (err.status == 401) {
-          alert();
+          alert("Invalid username/password");
         } else if (err.status == 500) {
-          alert();
+          alert("Server is interupted, try again later!");
+        } else {
+          alert("Some unkonwn errors, try again later!");
         }
       });
     }
