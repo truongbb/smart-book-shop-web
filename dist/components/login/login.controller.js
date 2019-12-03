@@ -3,9 +3,9 @@
 
   angular.module('smart_shop').controller('LoginController', LoginController);
 
-  LoginController.$inject = ['$scope', 'LoginService'];
+  LoginController.$inject = ['$scope', 'LoginService', '$localStorage'];
 
-  function LoginController($scope, LoginService) {
+  function LoginController($scope, LoginService, $localStorage) {
     var vm = this;
     (function init() {
       // <editor-fold desc="FUNCTIONS">
@@ -22,11 +22,16 @@
     })();
 
     function login() {
-      debugger;
       LoginService.login(vm.user, function (response) {
-        console.log(response);
+        $localStorage.user = response.user;
+        $localStorage.token = response.token;
       }, function (err) {
         console.log(err);
+        if (err.status == 401) {
+          alert();
+        } else if (err.status == 500) {
+          alert();
+        }
       });
     }
 

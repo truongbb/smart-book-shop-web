@@ -3,10 +3,10 @@
 
   angular.module('smart_shop').factory('LoginService', LoginService);
 
-  LoginService.$inject = ['$resource'];
+  LoginService.$inject = ['$resource', 'API_SERVICE_URL'];
 
-  function LoginService($resource) {
-    var resourceUrl = 'http://localhost:9870/smart_shop' + '/authenticate';
+  function LoginService($resource, API_SERVICE_URL) {
+    var resourceUrl = API_SERVICE_URL + '/authenticate';
     return $resource(resourceUrl, {}, {
       'login': {
         method: 'POST',
