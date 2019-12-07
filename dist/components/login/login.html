@@ -1,18 +1,24 @@
-<form>
-  <div class="form-group">
-    <label for="username">Username:</label>
-    <input type="text" class="form-control" id="username" ng-model="vm.user.username">
-  </div>
-  <div class="form-group">
-    <label for="pwd">Password:</label>
-    <input type="password" class="form-control" id="pwd" ng-model="vm.user.password">
-  </div>
-  <div class="form-group form-check">
-    <label class="form-check-label">
-      <input class="form-check-input" type="checkbox"> Remember me
-    </label>
-  </div>
-  <button type="button" class="btn btn-primary" ng-click="vm.login()">Login</button>
-
-  <p>Haven't account yet? <a ui-sref="register">Register here</a></p>
-</form>
+<div class="center margin-top-15">
+  <form>
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" class="form-control" id="username" ng-model="vm.user.username">
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" id="pwd" ng-model="vm.user.password">
+    </div>
+    <div class="text-right font-small margin-top-minus-5 cusor-pointer text-primary" ui-sref="forgot_pass">
+      Forgot password?</div>
+    <div class="form-group form-check">
+      <label class="form-check-label">
+        <input class="form-check-input" type="checkbox"> Remember me
+      </label>
+    </div>
+    <div style="text-align: center;">
+      <button type="button" class="btn btn-primary" ng-click="vm.login()">Login</button>
+    </div>
+    <br>
+    <p>Haven't account yet? <a ui-sref="register" class="cusor-pointer text-primary">Register here</a></p>
+  </form>
+</div>
