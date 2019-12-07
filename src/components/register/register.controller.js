@@ -1,15 +1,15 @@
 (function () {
   'use strict';
 
-  angular.module('smart_shop').controller('LoginController', LoginController);
+  angular.module('smart_shop').controller('RegisterController', RegisterController);
 
-  LoginController.$inject = ['$scope', 'LoginService', '$localStorage', '$state'];
+  RegisterController.$inject = ['$scope', 'RegisterService', '$localStorage', '$state'];
 
-  function LoginController($scope, LoginService, $localStorage, $state) {
+  function RegisterController($scope, RegisterService, $localStorage, $state) {
     var vm = this;
     (function init() {
       // <editor-fold desc="FUNCTIONS">
-      vm.login = login;
+      vm.register = register;
       // </editor-fold>
 
       // <editor-fold desc="VARIABLES">
@@ -18,13 +18,12 @@
 
     })();
 
-    function login() {
-      LoginService.login(vm.user, function (response) {
+    function register() {
+      RegisterService.register(vm.user, function (response) {
         $localStorage.user = response.user;
         $localStorage.token = response.token;
-        $state.go("smart_shop");
+        $state.go("home");
       }, function (err) {
-        console.log(err);
         if (err.status == 401) {
           $state.go("401");
         } else if (err.status == 500) {
@@ -34,6 +33,6 @@
         }
       });
     }
-  }
 
+  }
 })();

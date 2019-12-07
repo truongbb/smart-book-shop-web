@@ -11,7 +11,7 @@
             data: {},
             views: {
                 'content@': {
-                    templateUrl: 'home.html',
+                    templateUrl: '../components/home/home.html',
                     controller: 'HomeController',
                     controllerAs: 'vm'
                 }
