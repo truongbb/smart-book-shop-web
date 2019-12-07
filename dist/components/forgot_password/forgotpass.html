@@ -1,1 +1,13 @@
-sdfbfsnfg
+<div class="center margin-top-15">
+  <form>
+    <div class="form-group">
+      <label for="email">Enter email to reset password:</label>
+      <input type="email" class="form-control" id="email" ng-model="vm.user.email">
+    </div>
+    <div style="text-align: center;">
+      <button type="button" class="btn btn-primary" ng-click="vm.resetPassword()">Reset password</button>
+    </div>
+    <br>
+    <div ng-show="vm.resetSuccess">The new password has been sent to your email, please check your inbox</div>
+  </form>
+</div>

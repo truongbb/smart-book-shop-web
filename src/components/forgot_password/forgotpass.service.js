@@ -8,9 +8,9 @@
   function ForgotPasswordService($resource, API_SERVICE_URL) {
     var resourceUrl = API_SERVICE_URL + '/authenticate';
     return $resource(resourceUrl, {}, {
-      'login': {
+      'resetPassword': {
         method: 'POST',
-        url: resourceUrl + '/forgot_pass'
+        url: resourceUrl + '/resetPassword'
       }
     });
   }
