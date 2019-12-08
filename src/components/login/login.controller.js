@@ -3,9 +3,9 @@
 
   angular.module('smart_shop').controller('LoginController', LoginController);
 
-  LoginController.$inject = ['$scope', 'LoginService', '$localStorage', '$state'];
+  LoginController.$inject = ['$scope', 'LoginService', '$localStorage', '$state', 'ERROR_CODES'];
 
-  function LoginController($scope, LoginService, $localStorage, $state) {
+  function LoginController($scope, LoginService, $localStorage, $state, ERROR_CODES) {
     var vm = this;
     (function init() {
       // <editor-fold desc="FUNCTIONS">
@@ -14,6 +14,7 @@
 
       // <editor-fold desc="VARIABLES">
       vm.user = {};
+      vm.unauthen = false;
       // </editor-fold>
 
     })();
@@ -26,9 +27,9 @@
       }, function (err) {
         console.log(err);
         if (err.status == 401) {
-          $state.go("401");
-        } else if (err.status == 500) {
-          $state.go("500");
+          vm.unauthen = true;
+        } else if (ERROR_CODES.includes(err.status)) {
+          $state.go(err.status.toString());
         } else {
           alert("Some unkonwn errors, try again later!");
         }

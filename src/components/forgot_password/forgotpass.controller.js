@@ -26,6 +26,8 @@
         console.log(err);
         if (ERROR_CODES.includes(err.status)) {
           $state.go(err.status.toString());
+        } else {
+          alert("Some unkonwn errors, try again later!");
         }
       });
     }

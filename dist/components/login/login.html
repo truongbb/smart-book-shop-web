@@ -15,6 +15,10 @@
         <input class="form-check-input" type="checkbox"> Remember me
       </label>
     </div>
+    <div class="text-danger" ng-show="vm.unauthen">
+      Invalid username/password, please try again!
+    </div>
+    <br>
     <div style="text-align: center;">
       <button type="button" class="btn btn-primary" ng-click="vm.login()">Login</button>
     </div>
